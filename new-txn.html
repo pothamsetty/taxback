@@ -1,0 +1,42 @@
+<md-dialog>
+    <form name="newTxn" ng-cloak>
+        <div style="height:40px; padding:10px">
+            <label>New Transaction</label>
+        </div>
+        <md-divider style="padding-bottom: 10px;"></md-divider>
+        <md-dialog-content style="min-width: 500px; height:300px;">
+            <div style="padding: 10px">
+                <div layout="row">
+                    <div flex="15">
+                        <md-label>Amount:</md-label>
+                    </div>
+                    <div flex>
+                        <span><input type="text" ng-model="vm.amount" ></span>
+                    </div>
+                </div>
+                <br />
+                <div layout="row">
+                    <div flex="15">
+                        <md-label>Currency:</md-label>
+                    </div>
+                    <select ng-model="vm.currency" ng-init="vm.currency = currency[0]" ng-options="item for item in currency">
+                    </select>
+                </div>
+                <br />
+                <div layout="row">
+                    <div flex="15">
+                        <md-label>Txn Date:</md-label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><i class="fa fa-calendar"></i> </label>
+                        <input type="text" ng-model="vm.txn_date" data-date-format="yyyy-MM-dd" data-autoclose="1" placeholder="yyyy-MM-dd" data-max-date="today" bs-datepicker>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">cancel </md-button>
+            <md-button ng-click="send(vm)"> submit</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
