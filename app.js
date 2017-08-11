@@ -20,7 +20,7 @@
 
             $mdDialog.show({
                 controller: 'NewTxnController',
-                templateUrl: 'new-txn.html',
+                templateUrl: 'views/new-txn.html',
                 preserveScope: true,
                 targetEvent: ev
             }).then(function() {
@@ -115,7 +115,7 @@
         $scope.editTxn = function(item) {
             $mdDialog.show({
                 controller: 'EditTxnController',
-                templateUrl: 'edit-txn.html',
+                templateUrl: 'views/edit-txn.html',
                 preserveScope: true,                
                 locals: {
                     txn: item
