@@ -5,13 +5,13 @@
         </div>
         <md-divider style="padding-bottom: 10px;"></md-divider>
         <md-dialog-content style="min-width: 500px; height:300px;">
-            <div style="padding: 10px">
-                <div layout="row">
-                    <div flex="15">
-                        <md-label>Amount:</md-label>
-                    </div>
+            <div style="padding: 10px">                
+                <div layout="row" style="height:50px">
                     <div flex>
-                        <span><input type="text" ng-model="vm.amount" value="vm.amount" ></span>
+                       <md-input-container >
+                            <label>Amount</label>
+                            <input type="text" value="vm.amount" ng-model="vm.amount" required>
+                        </md-input-container>
                     </div>
                 </div>
                 <br />
@@ -19,7 +19,10 @@
                     <div flex="15">
                         <md-label>Currency:</md-label>
                     </div>
-                    <span><input type="text" ng-model="vm.currency" ></span>
+                    <span>
+                        <select ng-model="vm.currency" ng-options="item for item in currency">
+                    </select>
+                    </span>
                     </select>
                 </div>
                 <br />
@@ -36,7 +39,7 @@
         </md-dialog-content>
         <md-dialog-actions layout="row">
             <md-button ng-click="cancel()">cancel </md-button>
-            <md-button ng-click="send(vm)"> Update</md-button>
+            <md-button ng-disabled="EditTxn.$pristine|| EditTxn.$invalid" ng-click="send(vm)"> Update</md-button>
         </md-dialog-actions>
     </form>
 </md-dialog>

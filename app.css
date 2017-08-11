@@ -90,7 +90,7 @@
 .txn-grid .new-button {
     height: 30px;
     border: solid 3px #E4E4E4;
-    position: fixed;
+    position: absolute;
     left: 300px;
     border-radius: 3;
     font-size: 12px;
@@ -132,4 +132,10 @@
 
 .txn-grid .ui-grid .ui-grid-render-container-body .ui-grid-viewport {
     overflow: auto !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

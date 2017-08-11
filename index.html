@@ -24,24 +24,19 @@
 		<script type="text/javascript" src="app.js"></script>
 		<script type="text/javascript" src="new-txn.controller.js"></script>	
 		<script type="text/javascript" src="edit-txn.controller.js"></script>
-		
-			
 	</head>
 
 	<body ng-controller="txnCtrl" class="txn-grid" >
 	        	
-	        <h3 style="text-align:center;"> <em> Txn Application </em></h3>	
-	    
+	    <h3 style="text-align:center;"> <em> Txns Application </em></h3>	    
 	    <div layout="row" style="padding: 10px;">    	 
 	    	<div class="search" flex="20">
 	    	    <div class="input-group">            
-		            <input type="text" class="form-control" ng-model="searchInput" placeholder="search by Id" >
+		            <input type="number" class="form-control" ng-model="searchInput" placeholder="search by Id" >
 		            <span class="input-group-addon" ng-click="search()"><i class="glyphicon glyphicon-search"></i></span>
 	            </div>
-	        </div>
-	         
-			<input type="button" value ="New Transaction" class="btn btn-default new-button" ng-model="temp" ng-click="createTxn($event)">
-		     
+	        </div>	         
+			<input type="button" value ="New Transaction" class="btn btn-default new-button" ng-model="temp" ng-click="createTxn($event)">		     
 		</div>
 		<div layout="row">
 				<div ng-if="txnData.length==0">
@@ -49,8 +44,7 @@
 		</div>
 		</div>
 		
-		<div ui-grid="gridOptions" ui-grid-auto-resize ui-grid-pagination style="margin-bottom: 10px;"></div>
-		
+		<div ui-grid="gridOptions" ui-grid-auto-resize ui-grid-pagination style="margin-bottom: 10px;"></div>	
 
-		</body>
+	</body>
 </html>

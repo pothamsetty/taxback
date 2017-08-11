@@ -4,6 +4,8 @@
 
     function editTxnController($scope, $mdDialog, $http, txn) {
 
+        $scope.currency = ['INR', 'USD', 'GBP', 'EUR'];
+        
         $scope.vm = {
             id: txn.id,
             amount: txn.amount,

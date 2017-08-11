@@ -26,18 +26,16 @@
             }).then(function() {
                 $scope.loadTxnData();
             }, function(err) {
-                //console.log(err);
+                
             });
         }
 
         $scope.search = function() {
-
-            if (angular.equals($scope.searchInput, '')) {                
-                $scope.loadTxnData();
-                $scope.gridApi.grid.refresh();
-            }
-
-            if (angular.isDefined($scope.searchInput)) {
+            // if (angular.equals($scope.searchInput, null)) {                 
+            //     //$scope.gridApi.grid.refresh();
+            //     $scope.loadTxnData();
+            // } else 
+            if ($scope.searchInput) {
                 $http.get('https://jointhecrew.in/api/txns/priya@gmail.com/' + $scope.searchInput).then(function(response) {
                     var arrData = [];
                     arrData.push(response.data);
@@ -49,7 +47,7 @@
                     }
                     $scope.txnData = [];
                 });
-            }
+            } 
         };
 
         $scope.gridOptions = {
@@ -118,8 +116,7 @@
             $mdDialog.show({
                 controller: 'EditTxnController',
                 templateUrl: 'edit-txn.html',
-                preserveScope: true,
-                // parent: angular.element(document.body),
+                preserveScope: true,                
                 locals: {
                     txn: item
                 }
@@ -147,13 +144,7 @@
                         //console.log(err);
                     });
                 });
-        }
-
-        // $scope.maybeSearch = function(ev) {
-        //     if (ev.which == 13 || $scope.searchInput === '') {
-        //        $scope.search();
-        //     }
-        // };
+        }       
     }
 
     txnCtrl.$inject = ['$scope', '$http', '$mdDialog', 'SweetAlert'];
@@ -171,5 +162,4 @@
             'oitozero.ngSweetAlert',
         ])
         .controller('txnCtrl', txnCtrl);
-
 })();
